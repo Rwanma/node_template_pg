@@ -1,5 +1,4 @@
 const express = require('express');
-// import {DatabaseConnection} from "./Database/DatabaseConnection"
 import {PostgressConnection} from "./Database/Postgress/PostgressConnection"
 
 

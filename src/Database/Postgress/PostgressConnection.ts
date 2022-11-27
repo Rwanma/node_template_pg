@@ -6,7 +6,6 @@ import {Config} from "../../Config/Config";
 export class PostgressConnection {
 
     constructor() {
-        console.log('loooooooooooooooooggggggging');
         let db = Config.getPostGressConfig();
         console.log(db);
 

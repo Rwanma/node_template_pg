@@ -19,7 +19,8 @@
     "express": "^4.17.2",
     "mysql": "^2.18.1",
     "pg": "^8.8.0",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.2",
