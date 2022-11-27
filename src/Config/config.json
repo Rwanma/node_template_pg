@@ -1,0 +1,11 @@
+{
+  "pg": {
+    "user": "mamar",
+    "host": "localhost",
+    "database": "msefian",
+    "password": "xxx",
+    "port": "5432"
+  }
+}
+
+
