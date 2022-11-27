@@ -4,47 +4,33 @@ import {Config} from "../../Config/Config";
 
 
 export class PostgressConnection {
+    client : any = null;
 
     constructor() {
         let db = Config.getPostGressConfig();
-        console.log(db);
 
-        const client = new Client({
+        this.client = new Client({
             user: db.user,
             host: db.host,
             database: db.database,
             password: db.password,
             port: db.port
         })
-        client.connect()
+        this.client.connect();
+    }
 
 
+     async query() {
 
-        //   client.query('select * from test_table ', (err, res) => {
-        //     console.log(res.rows)
-        //     client.end()
-        //   })
+        //queryPromise.then(result => res.send(result.rows[0]));
 
-        client
-            .query('select * from test_table')
-            .then(res => console.log(res.rows[0]))
-            .catch(e => console.error(e.stack))
-
-
-
+        let result = await this.client.query('select * from test_table');
+        console.log('result :', result.rows[0]);
+        return result;
     }
 }
 
 
 
-
-/*
-let query = 'select * from CATEGORIES';
-let myConnection = new DatabaseConnection();
-*/
-
-
-/*DatabaseConnection.query("select * from CATEGORIES", function (error, results) {
-    console.log(results);
-});*/
-
+// let connection = new PostgressConnection();
+// connection.query();

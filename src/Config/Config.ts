@@ -15,6 +15,3 @@ export class Config {
 
 }
 
-
-
-console.log(Config.getPostGressConfig());
