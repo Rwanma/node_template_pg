@@ -1,10 +1,10 @@
 const { Pool, Client } = require('pg')
-import {Config} from "../../Config/Config";
+import { Config } from "../../Config/Config";
 
 
 
 export class PostgressConnection {
-    client : any = null;
+    client: any = null;
 
     constructor() {
         let db = Config.getPostGressConfig();
@@ -20,10 +20,7 @@ export class PostgressConnection {
     }
 
 
-     async query() {
-
-        //queryPromise.then(result => res.send(result.rows[0]));
-
+    async query() {
         let result = await this.client.query('select * from test_table');
         console.log('result :', result.rows[0]);
         return result;
@@ -32,5 +29,3 @@ export class PostgressConnection {
 
 
 
-// let connection = new PostgressConnection();
-// connection.query();
