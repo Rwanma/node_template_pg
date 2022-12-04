@@ -32,5 +32,12 @@ export class PrismaExample {
     }
 
 
+    async updateUser() {
+        const post = await prisma.post.update({
+            where: { id: 1 },
+            data: { published: true },
+          })
+    }
+
 
 }

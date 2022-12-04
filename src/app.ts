@@ -37,6 +37,14 @@ app.get('/getUsers', async (req: any, res: any) => {
 });
 
 
+app.get('/updateUsers', async (req: any, res: any) => {
+    let newUser = new PrismaExample();
+    let users = await newUser.updateUser();
+    res.send("users updated");
+});
+
+
+
 app.get('/', async (req: any, res: any) => {
     logger.log('sending data to front end');
     let connection = new PostgressConnection();
