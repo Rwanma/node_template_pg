@@ -21,7 +21,7 @@ export class PostgressConnection {
 
 
     async query() {
-        let result = await this.client.query('select * from test_table');
+        let result = await this.client.query('select * from "public"."User"');
         console.log('result :', result.rows[0]);
         return result;
     }

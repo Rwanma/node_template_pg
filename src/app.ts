@@ -1,5 +1,7 @@
 const express = require('express');
 import { PostgressConnection } from "./Database/Postgress/PostgressConnection"
+import { PrismaExample } from "./Database/Prisma/Prisma"
+
 import { MyLogger } from './Logger/logger'
 
 let logger = new MyLogger();
@@ -18,6 +20,30 @@ app.use(function (req: any, res: any, next: any) {
 app.get('/toto', (req: any, res: any) => {
     res.send("toto");
 });
+
+
+app.get('/createUser', (req: any, res: any) => {
+    let newUser = new PrismaExample();
+    newUser.createUser();
+    res.send("UserCreated");
+});
+
+
+
+app.get('/getUsers', async (req: any, res: any) => {
+    let newUser = new PrismaExample();
+    let users = await newUser.getUsers();
+    res.send(users);
+});
+
+
+app.get('/updateUsers', async (req: any, res: any) => {
+    let newUser = new PrismaExample();
+    let users = await newUser.updateUser();
+    res.send("users updated");
+});
+
+
 
 app.get('/', async (req: any, res: any) => {
     logger.log('sending data to front end');
